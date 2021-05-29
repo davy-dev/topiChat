@@ -1,0 +1,78 @@
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.app__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 50px;
+    width: 90vw;
+    height: 90vh;
+
+
+}
+
+.SignIn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #778899;
+    border-radius: 20px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 300px;
+        width: 300px;
+        border-radius: 50px;
+        background: #778899;
+        box-shadow: 20px 20px 60px #657482,
+            -20px -20px 60px #899cb0;
+
+
+        animation: flip-scale-up-hor 0.7s ease-in-out;
+
+        button {
+            border: none;
+            height: 50px;
+            padding: 7px;
+            border-radius: 30px
+        }
+    }
+
+    h1{ 
+        display:flex;
+        flex-direction: column;
+
+        align-items:center;
+        .iconHighlight{
+            margin: 50px;
+            width: 100px;
+            height:100px;
+        }
+    }
+
+}
+
+
+
+@keyframes flip-scale-up-hor {
+    0% {
+        opacity: -1;
+        transform: scale(1) rotateX(0);
+    }
+
+    50% {
+
+        transform: scale(1.4) rotateX(-90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateX(-360deg);
+    }
+}

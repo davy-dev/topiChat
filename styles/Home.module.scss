@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.app__chat {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 50px;
+    width: 90vw;
+    height: 90vh;
+
+
+}

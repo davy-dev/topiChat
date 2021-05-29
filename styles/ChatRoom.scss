@@ -1,0 +1,88 @@
+.ChatRoom {
+
+    display: grid;
+    grid-template-rows: 100px 1fr;
+
+    .room__title {
+        display: flex;
+        justify-content: space-between;
+        background: rgb(241, 241, 217);
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .room__messages {
+        overflow: scroll;
+        height: 1300px;
+        margin-top: 20px;
+        background: rgb(243, 242, 242);
+        padding: 20px;
+        border-radius: 20px;
+
+
+        .message {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-radius: 20px;
+            padding: 10px;
+            width: fit-content;
+            margin-bottom: 70px;
+            color: #FFFFFF;
+            min-width: 220px;
+            text-align: center;
+
+            img {
+                width: 300px;
+                height: 300px;
+                border-radius:10px;
+            }
+
+
+            span {
+                position: absolute;
+                bottom: 40px;
+
+                color: black;
+                width: 150px;
+                font-weight: 600;
+                margin-right: 100px;
+            }
+
+            .timestamp {
+                position: absolute;
+                font-size: 12px;
+                margin: 3px;
+                top: 35px;
+                width: 200px;
+
+            }
+
+        }
+
+    }
+
+    .input__container {
+        display: flex;
+        justify-content: space-around;
+        height: 100px;
+        padding: 20px;
+        border-radius: 20px;
+
+        input {
+            background: lightgray;
+            flex: 1;
+            padding: 10px;
+            border-radius: 30px;
+            border: none;
+        }
+
+        button {
+            border-radius: 30px;
+            border: none;
+            background: rgb(25, 137, 230);
+            color: #FFFFFF;
+        }
+    }
+
+}

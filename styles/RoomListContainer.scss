@@ -1,0 +1,85 @@
+.RoomListContainer {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+
+    .user__profile {
+        display: flex;
+        background: rgb(241, 232, 217);
+        border-radius: 20px;
+        margin-right: 10px;
+        padding: 20px;
+
+        .avatar {
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .room__list {
+        height: 1500px;
+        overflow: scroll;
+        background: rgb(135, 202, 222);
+        border-radius: 20px;
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 20px;
+
+        .searchBar__Container {
+            display: flex;
+            margin: 10px;
+
+            input {
+                width: 100%;
+                background: none;
+                border: none;
+                font-size: 24px;
+            }
+
+        }
+
+        .addRoom {
+            background: rgb(37, 218, 235);
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+            padding: 10px;
+            color: rgba(0, 0, 0, 0.753);
+
+        }
+    }
+
+    .room {
+        display: flex;
+        justify-content: space-between;
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        padding: 10px;
+
+        h2 {
+            flex: 1;
+        }
+
+        .delete__room {
+
+            width: 70px;
+            height: 50px;
+
+
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        background: lightgray;
+        cursor: pointer;
+    }
+
+}
