@@ -32,9 +32,9 @@
         background: #778899;
         box-shadow: 20px 20px 60px #657482,
             -20px -20px 60px #899cb0;
-
-
-        animation: flip-scale-up-hor 0.7s ease-in-out;
+        backface-visibility: hidden;
+        opacity: 0;
+        animation:  flip-scale-up-hor 1s ease-out forwards;
 
         button {
             border: none;
@@ -62,17 +62,18 @@
 
 @keyframes flip-scale-up-hor {
     0% {
-        opacity: -1;
-        transform: scale(1) rotateX(0);
+        opacity: 0;
+        transform: scale(1) rotateY(0);
     }
 
     50% {
-
-        transform: scale(1.4) rotateX(-90deg);
+        opacity: 0.5;
+        transform: scale(1.2) rotateY(-90deg);
     }
 
     100% {
+        
+        transform: scale(1) rotateY(-360deg);
         opacity: 1;
-        transform: scale(1) rotateX(-360deg);
     }
 }

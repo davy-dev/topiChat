@@ -3,8 +3,7 @@ import UserContext from "../context/UserContext";
 import { db } from "../firebase";
 import firebase from "firebase";
 import moment from "moment";
-import ImageUploader from "../components/ImageUpload"
-
+import ImageUploader from "../components/ImageUpload";
 
 export default function ChatRoom({ roomName }) {
   const [inputValue, setInputValue] = useState("");
@@ -14,28 +13,24 @@ export default function ChatRoom({ roomName }) {
   const [roomId, setRoomId] = useState("");
   const [title, setTitle] = useState("");
   moment.locale("fr");
- 
-
 
   useEffect(() => {
     const serverSideData = JSON.parse(roomName);
     setTitle(serverSideData.roomName);
     setRoomId(serverSideData.id);
-   const unsub = db.collection("rooms")
+    const unsub = db
+      .collection("rooms")
       .doc(serverSideData.id)
       .collection("messages")
       .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) =>
         setMessages(snapshot.docs.map((doc) => doc.data()))
       );
-  
-      return ()=>{
-        unsub()
-      }
 
-    
+    return () => {
+      unsub();
+    };
   }, [roomName, roomId]);
-
 
   const sendMessage = () => {
     setMessage(inputValue);
@@ -56,8 +51,8 @@ export default function ChatRoom({ roomName }) {
   return (
     <div className="ChatRoom">
       <div className="room__title">
-      <h1>{title}</h1>
-        <ImageUploader roomId={roomId} userName={userInContext?.displayName}/>
+        <h1>{title}</h1>
+        <ImageUploader roomId={roomId} userName={userInContext?.displayName} />
       </div>
       <div className="room__messages">
         {messages.map((message, i) => (
@@ -68,14 +63,12 @@ export default function ChatRoom({ roomName }) {
                 style={
                   userInContext.uid === message.userName
                     ? {
-                        background: "#376e16",
-                        marginLeft: "auto",
-                        marginRight: "40px",
+                        background: "#376e16", marginLeft: "auto",
                       }
                     : { background: "#1158b6" }
                 }
               >
-              <img src={message.imageUrl} alt="image"/>
+                {message.imageUrl && <img src={message.imageUrl} alt="image" />}
                 <span>{message.userName}</span>
                 {message.message}
                 <span className="timestamp">
@@ -91,8 +84,9 @@ export default function ChatRoom({ roomName }) {
                     ? { background: "#376e16", marginLeft: "auto" }
                     : { background: "#1158b6" }
                 }
-              > {message.imageUrl&& <img src={message.imageUrl} alt="image"/> }
-               
+              >
+                {" "}
+                {message.imageUrl && <img src={message.imageUrl} alt="image" />}
                 <span
                   style={
                     userInContext.displayName === message.userName
